@@ -144,7 +144,7 @@ async def fetch(data_inicio, data_fim, orgao):
                     results = [ResponseSite(**item) for item in response_data]  # Cria uma lista de ResponseSite
                     result = ResponseDefault(
                         code=0,
-                        message='Convênios encontrados.',
+                        message='Consulta realizada com sucesso',
                         results=results,
                         datetime=str(datetime.now()),
                     )

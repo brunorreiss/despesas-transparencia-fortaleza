@@ -1,7 +1,6 @@
 from enum import Enum
 from pydantic import BaseModel
-from datetime import datetime
-from typing import Optional, List
+from typing import Optional, List, Union
 
 
 class Orgao(str, Enum):
@@ -82,63 +81,63 @@ class Orgao(str, Enum):
 
 
 class ResponseSite(BaseModel):
-    ID: int
-    IDPARCELA: int
-    IDEMPENHO: int
-    EXERCICIO: int
-    CODIGOCOMPLETOUO: str
-    CODIGOORGAO: str
-    CODIGOUNIDADE: str
-    DESCRICAOUO: str
-    SIGLAUO: str
-    ORGAOREDUZIDO: int
-    NUMEROEMPENHO: int
-    PARCELAEMPENHO: int
-    DATAEMPENHO: str
-    DATALIQUIDACAO: str
-    DATAPAGAMENTO: str
-    FASE: str
-    ESPECIEEMPENHO: str
+    ID: Optional[Union[int, str]]  = ''
+    IDPARCELA: Optional[Union[int, str]]  = ''
+    IDEMPENHO: Optional[Union[int, str]]  = ''
+    EXERCICIO: Optional[Union[int, str]]  = ''
+    CODIGOCOMPLETOUO: Optional[Union[int, str]]  = ''
+    CODIGOORGAO: Optional[Union[int, str]]  = ''
+    CODIGOUNIDADE: Optional[Union[int, str]]  = ''
+    DESCRICAOUO: Optional[Union[int, str]]  = ''
+    SIGLAUO: Optional[Union[int, str]]  = ''
+    ORGAOREDUZIDO: Optional[Union[int, str]]  = ''
+    NUMEROEMPENHO: Optional[Union[int, str]]  = ''
+    PARCELAEMPENHO: Optional[Union[int, str]]  = ''
+    DATAEMPENHO: Optional[Union[int, str]]  = ''
+    DATALIQUIDACAO: Optional[Union[int, str]]  = ''
+    DATAPAGAMENTO: Optional[Union[int, str]]  = ''
+    FASE: Optional[Union[int, str]] 
+    ESPECIEEMPENHO: Optional[Union[int, str]]  = ''
     RESTOSAPAGAR: Optional[float]
-    OBJETOEMPENHO: str
-    IDCREDOR: int
-    DOCUMENTOCREDOR: str
-    NOMECREDOR: str
-    CODIGODOTACAO: str
-    CODIGOFUNCAO: str
-    DESCRICAOOFUNCAO: str
-    CODIGOSUBFUNCAO: str
-    DESCRICAOSUBFUNCAO: str
-    CODIGOPROGRAMA: str
-    DESCRICAOPROGRAMA: str
-    CODIGOATIVIDADE: str
-    DESCRICAOATIVIDADE: str
-    CODIGOSUBATIVIDADE: str
-    CATEGORIAECONOMICA: str
-    DESCRICAOCATEGORIAECONOMICA: str
-    GRUPONATUREZA: str
-    DESCRICAOGRUPONATUREZA: str
-    MODALIDADEAPLICACAO: str
-    DESCRICAOMODALIDADEAPLICACAO: str
-    CODIGOELEMENTO: str
-    DESCRICAOELEMENTO: str
-    INDICADORUSO: str
-    CODIGOFONTE: str
-    DESCRICAOFONTE: str
-    SUBELEMENTOS: str
-    IDLICITACAO: Optional[int]
-    EXERCICIOLICITACAO: Optional[int]
-    NUMEROLICITACAO: Optional[int]
-    CODIGOMODALIDADEPROCESSO: int
-    DESCRICAOMODALIDADEPROCESSO: str
-    CODIGOMODALIDADELICITACAO: int
-    DESCRICAOMODALIDADELICITACAO: str
-    VALOREMPENHADO: Optional[float]
-    VALORPARCELA: Optional[float]
-    VALORLIQUIDADO: Optional[float]
-    VALORPAGO: Optional[float]
-    VALORRETENCOES: Optional[float]
-    VALORANULADO: Optional[float]
+    OBJETOEMPENHO: Optional[Union[int, str]]  = ''
+    IDCREDOR: int = '' 
+    DOCUMENTOCREDOR: Optional[Union[int, str]]  = ''
+    NOMECREDOR: Optional[Union[int, str]]  = ''
+    CODIGODOTACAO: Optional[Union[int, str]]  = ''
+    CODIGOFUNCAO: Optional[Union[int, str]]  = ''
+    DESCRICAOOFUNCAO: Optional[Union[int, str]]  = ''
+    CODIGOSUBFUNCAO: Optional[Union[int, str]]  = ''
+    DESCRICAOSUBFUNCAO: Optional[Union[int, str]]  = ''
+    CODIGOPROGRAMA: Optional[Union[int, str]]  = ''
+    DESCRICAOPROGRAMA: Optional[Union[int, str]]  = ''
+    CODIGOATIVIDADE: Optional[Union[int, str]]  = ''
+    DESCRICAOATIVIDADE: Optional[Union[int, str]]  = ''
+    CODIGOSUBATIVIDADE: Optional[Union[int, str]]  = ''
+    CATEGORIAECONOMICA: Optional[Union[int, str]]  = ''
+    DESCRICAOCATEGORIAECONOMICA: Optional[Union[int, str]]  = ''
+    GRUPONATUREZA: Optional[Union[int, str]]  = ''
+    DESCRICAOGRUPONATUREZA: Optional[Union[int, str]]  = ''
+    MODALIDADEAPLICACAO: Optional[Union[int, str]]  = ''
+    DESCRICAOMODALIDADEAPLICACAO: Optional[Union[int, str]]  = ''
+    CODIGOELEMENTO: Optional[Union[int, str]]  = ''
+    DESCRICAOELEMENTO: Optional[Union[int, str]]  = ''
+    INDICADORUSO: Optional[Union[int, str]]  = ''
+    CODIGOFONTE: Optional[Union[int, str]]  = ''
+    DESCRICAOFONTE: Optional[Union[int, str]]  = ''
+    SUBELEMENTOS: Optional[Union[int, str]]  = ''
+    IDLICITACAO: Optional[Union[int, str]] = ''
+    EXERCICIOLICITACAO: Optional[Union[int, str]] = ''
+    NUMEROLICITACAO: Optional[Union[int, str]] = ''
+    CODIGOMODALIDADEPROCESSO: Optional[Union[int, str]] = ''
+    DESCRICAOMODALIDADEPROCESSO: Optional[Union[int, str]] = ''
+    CODIGOMODALIDADELICITACAO: Optional[Union[int, str]] = ''
+    DESCRICAOMODALIDADELICITACAO: Optional[Union[int, str]] = ''
+    VALOREMPENHADO: Optional[float] = 0.0
+    VALORPARCELA: Optional[float] = 0.0
+    VALORLIQUIDADO: Optional[float] = 0.0
+    VALORPAGO: Optional[float] = 0.0
+    VALORRETENCOES: Optional[float] = 0.0
+    VALORANULADO: Optional[float] = 0.0
 
 class ResponseDefault(BaseModel):
     code: int
