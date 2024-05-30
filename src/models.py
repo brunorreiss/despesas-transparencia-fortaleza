@@ -81,6 +81,10 @@ class Orgao(str, Enum):
 
 
 class ResponseSite(BaseModel):
+    ORGAO: Optional[Union[int, str]]  = ''
+    DATAINICIO: Optional[Union[int, str]]  = ''
+    DATAFIM: Optional[Union[int, str]]  = ''
+    FONTE_PESQUISA: Optional[Union[int, str]]  = 'Portal da transparência Fortaleza'
     ID: Optional[Union[int, str]]  = ''
     IDPARCELA: Optional[Union[int, str]]  = ''
     IDEMPENHO: Optional[Union[int, str]]  = ''

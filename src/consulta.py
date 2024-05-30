@@ -107,6 +107,8 @@ async def fetch(data_inicio, data_fim, orgao):
 
     if orgao in orgao_dict:
         orgao = orgao_dict[orgao]
+        # Pegar só a chave do dicionário
+        orgao_nome = [key for key, value in orgao_dict.items() if value == orgao][0]
     else:
         return JSONResponse(
             status_code=status.HTTP_400_BAD_REQUEST,
@@ -114,7 +116,7 @@ async def fetch(data_inicio, data_fim, orgao):
                      "datetime": datetime.now().isoformat()}
         )
 
-    logger.info(f"Consulta: {data_inicio}/{data_fim} - {orgao}")
+    logger.info(f"Consulta: {data_inicio}/{data_fim} - {orgao_nome}")
 
     # Configura os timeouts
     timeout = aiohttp.ClientTimeout(total=TIMEOUT)
@@ -142,6 +144,8 @@ async def fetch(data_inicio, data_fim, orgao):
                     )
                 else:
                     results = [ResponseSite(**item) for item in response_data]  # Cria uma lista de ResponseSite
+                    # Colocando a data de inicio e fim da consulta
+                    results.append(ResponseSite(DATAINICIO=data_inicio, DATAFIM=data_fim, ORGAO=orgao_nome))
                     result = ResponseDefault(
                         code=0,
                         message='Consulta realizada com sucesso',
