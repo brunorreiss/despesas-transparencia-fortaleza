@@ -81,9 +81,9 @@ class Orgao(str, Enum):
 
 
 class ResponseSite(BaseModel):
-    ORGAO: Optional[Union[int, str]]  = ''
-    DATAINICIO: Optional[Union[int, str]]  = ''
-    DATAFIM: Optional[Union[int, str]]  = ''
+    ORGAO: str = ''
+    DATAINICIO: str = ''
+    DATAFIM: str = ''
     FONTE_PESQUISA: Optional[Union[int, str]]  = 'Portal da transparência Fortaleza'
     ID: Optional[Union[int, str]]  = ''
     IDPARCELA: Optional[Union[int, str]]  = ''
@@ -100,9 +100,9 @@ class ResponseSite(BaseModel):
     DATAEMPENHO: Optional[Union[int, str]]  = ''
     DATALIQUIDACAO: Optional[Union[int, str]]  = ''
     DATAPAGAMENTO: Optional[Union[int, str]]  = ''
-    FASE: Optional[Union[int, str]] 
+    FASE: Optional[Union[int, str]] = ''
     ESPECIEEMPENHO: Optional[Union[int, str]]  = ''
-    RESTOSAPAGAR: Optional[float]
+    RESTOSAPAGAR: Optional[float] = ''
     OBJETOEMPENHO: Optional[Union[int, str]]  = ''
     IDCREDOR: int = '' 
     DOCUMENTOCREDOR: Optional[Union[int, str]]  = ''
@@ -136,12 +136,12 @@ class ResponseSite(BaseModel):
     DESCRICAOMODALIDADEPROCESSO: Optional[Union[int, str]] = ''
     CODIGOMODALIDADELICITACAO: Optional[Union[int, str]] = ''
     DESCRICAOMODALIDADELICITACAO: Optional[Union[int, str]] = ''
-    VALOREMPENHADO: Optional[float] = 0.0
-    VALORPARCELA: Optional[float] = 0.0
-    VALORLIQUIDADO: Optional[float] = 0.0
-    VALORPAGO: Optional[float] = 0.0
-    VALORRETENCOES: Optional[float] = 0.0
-    VALORANULADO: Optional[float] = 0.0
+    VALOREMPENHADO: Optional[Union[float, int]] = ''
+    VALORPARCELA: Optional[Union[float, int]] = ''
+    VALORLIQUIDADO: Optional[Union[float, int]] = ''
+    VALORPAGO: Optional[Union[float, int]] = ''
+    VALORRETENCOES: Optional[Union[float, int]] = ''
+    VALORANULADO: Optional[Union[float, int]] = ''
 
 class ResponseDefault(BaseModel):
     code: int

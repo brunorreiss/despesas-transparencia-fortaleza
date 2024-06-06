@@ -145,7 +145,7 @@ async def fetch(data_inicio, data_fim, orgao):
                 else:
                     results = [ResponseSite(**item) for item in response_data]  # Cria uma lista de ResponseSite
                     # Colocando a data de inicio e fim da consulta
-                    results.append(ResponseSite(DATAINICIO=data_inicio, DATAFIM=data_fim, ORGAO=orgao_nome))
+                    results = [ResponseSite(**item, DATAINICIO=data_inicio, DATAFIM=data_fim, ORGAO=orgao_nome) for item in response_data]
                     result = ResponseDefault(
                         code=0,
                         message='Consulta realizada com sucesso',
@@ -170,6 +170,10 @@ async def fetch(data_inicio, data_fim, orgao):
                     'message': f'INTERNAL_SERVER_ERROR: {str(e)}'
                 }
             )
+            
+        else:
+            
+            session.close()
 
-        logger.info(f"Consulta finalizada: {result}")
-        return result
+            logger.info(f"Consulta finalizada: {result}")
+            return result
